@@ -99,7 +99,7 @@ client.user.setGame(`Mido King |`,"https://www.twitch.tv/lboghaz_kingheros")
 });
 
 client.on('message', message => {
-    if(message.content == ('-هويتي')) {    
+    if(message.content == (#id')) {    
  
              if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s :x:');   
             var Canvas = module.require('canvas');
