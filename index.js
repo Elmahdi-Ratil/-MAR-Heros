@@ -8,7 +8,7 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '!';
+const PREFIX = '2';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
