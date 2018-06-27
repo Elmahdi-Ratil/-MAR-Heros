@@ -16,7 +16,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 lient.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-	client.user.setGame(prefix + "2play | Mido King |`,"https://www.twitch.tv/lboghaz_kingheros")
+	client.user.setGame(prefix + " Mido King |2play`,"https://www.twitch.tv/lboghaz_kingheros")
   console.log('')
   console.log('')
   console.log('+[-----------------------------------------------------------------]+')
