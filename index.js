@@ -14,33 +14,11 @@ const PREFIX = '2';
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
-lient.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-	client.user.setGame(prefix + " Mido King |2play`,"https://www.twitch.tv/lboghaz_kingheros")
-  console.log('')
-  console.log('')
-  console.log('+[-----------------------------------------------------------------]+')
-  console.log(`[Start] ${new Date()}`);
-  console.log('+[-----------------------------------------------------------------]+')
-  console.log('')
-  console.log('+[------------------------------------]+');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('By The Atlantic Enjoy')
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('+[------------------------------------]+')
-  console.log('')
-  console.log('+[------------]+')
-  console.log(' Bot Is Online')
-  console.log('+[------------]+')
-  console.log('')
-  console.log('')
+client.on('ready', function() {
+	console.log(`i am ready ${client.user.username}`);
+    client.user.setGame(prefix + 'Mido King || 2play ');
 });
+
 
 
 client.on('warn', console.warn);
@@ -155,9 +133,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		let index = 0;
 		const embedqu = new Discord.RichEmbed()
 	.setDescription(`**Songs Queue**
-
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
-
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`)
 		return msg.channel.sendEmbed(embedqu);
 	} else if (command === `stop`) {
@@ -271,7 +247,6 @@ var prefix = '2';
 client.on('message', msg => {
 	if (msg.content.startsWith(prefix + 'help')) {
 msg.author.send("Commands ستاتي " + `  **
-
    "  : الاوامر "
 :headphones:  ${prefix}play |اسم لاغنيه / رابط الاغنية
 :headphones:  ${prefix}skipللإنتقاال الى الاغنيه التاليه (\اذا كان هناك بقائمة الانتظار\
