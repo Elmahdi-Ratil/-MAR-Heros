@@ -16,8 +16,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King | 2play |,`"https://www.twitch.tv/lboghaz_kingheros"
-});
+    client.user.setGame(prefix + 'Mido King | 2play |`,"https://www.twitch.tv/lboghaz_kingheros");
 
 
 
