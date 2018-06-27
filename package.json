@@ -1,28 +1,41 @@
 {
-  "name": "gboty",
-  "version": "1.0.0",
-  "description": "",
+  "name": "plustest",
+  "description": "plustest",
+  "version": "2.0.0",
   "main": "node index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-  },
-  "engines": {
-    "node": "8.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shadow0o0/gboty.git"
+    "url": "git://github.com/then/fs.git"
   },
-  "author": "GarZ",
+  "keywords": [
+    "promise",
+    "then",
+    "fs",
+    "core"
+  ],
+  "author": "Nathan Zadoks",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shadow0o0/gboty/issues"
+    "url": "https://github.com/then/fs/issues"
   },
-  "homepage": "https://github.com/shadow0o0/gboty#readme",
+  "devDependencies": {
+    "bash-color": "0.0.3"
+  },
   "dependencies": {
-    "dateformat": "^3.0.3",
-    "discord.js": "^11.3.2"
-    
+
+"canvas": "1.6.10",
+    "dateformat": "3.0.3",
+    "discord.js": "11.3.2",
+    "ffmpeg-binaries": "3.2.2-3",
+    "get-youtube-id": "^1.0.0",
+    "node-opus": "0.2.7",
+    "request": "^2.81.0",
+    "simple-youtube-api": "5.0.1",
+    "youtube-info": "^1.2.0",
+    "ytdl-core": "0.20.2"
+
   }
 }
