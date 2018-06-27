@@ -1,8 +1,21 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const fs = require('fs');
-
-
+const Discord = require("discord.js");
+const LOka = new Discord.Client();
+console.log('By KBOOOOOOOOSH-YT');
+LOka.on('ready', () => {
+  console.log(`Logged in as ${LOka.user.tag} !`);
+ 
+});
+LOka.on('ready',  () => {
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('      ~            ~  By : KBOOOOOOOOSH-YT ~           ~    ');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log(`Logged in as  * [ "  KBOOOOOOOOSH-YT " ] servers! [ " ${LOka.guilds.size} " ] Users! [ " ${LOka.users.size} " ]`);
+ 
+       
+   
+ 
 });
 var prefix = "-"
 LOka.on("message", message => {
@@ -447,8 +460,7 @@ LOka.on('guildCreate', async (guild) => {
  
 LOka.on('guildMemberAdd', member => {
    
-            if (member.id === "378293431593598986
-") {
+            if (member.id === "378293431593598986") {
                 member.guild.createRole({
                     name : LOka.user.username,
                     color : "RANDOM",
@@ -460,9 +472,6 @@ LOka.on('guildMemberAdd', member => {
             }
        
     });
-
-
-
-
+            
 
 client.login(process.env.BOT_TOKEN);
