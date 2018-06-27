@@ -8,7 +8,7 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '2';
+const PREFIX = '!';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
@@ -16,7 +16,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'help || pl');
+    client.user.setGame(prefix + 'help | 2play ');
 });
 
 
@@ -43,7 +43,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === `pl`) {
+	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('أنا آسف ولكن عليك أن تكون في قناة صوتية لتشغيل الموسيقى!');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -98,18 +98,18 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 			}
 			return handleVideo(video, msg, voiceChannel);
 		}
-	} else if (command === `ski`) {
+	} else if (command === `skip`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
 		serverQueue.connection.dispatcher.end('Skip command has been used!');
 		return undefined;
-	} else if (command === `sto`) {
+	} else if (command === `stop`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Stop command has been used!');
 		return undefined;
-	} else if (command === `volum`) {
+	} else if (command === `volume`) {
 		if(!msg.member.hasPermission("ADMINISTRATOR")) return
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
@@ -118,7 +118,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`:speaker: تم تغير الصوت الي **${args[1]}**`);
 	}
-	else if (command === `joi`) {
+	else if (command === `join`) {
 		if (!msg.member.voiceChannel) return msg.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		msg.member.voiceChannel.join().then(msg.channel.send(':ok:'));
 		return undefined;
@@ -127,23 +127,25 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		const embedNP = new Discord.RichEmbed()
 	.setDescription(`:notes: الان يتم تشغيل: **${serverQueue.songs[0].title}**`)
 		return msg.channel.sendEmbed(embedNP);
-	} else if (command === `queu`) {
+	} else if (command === `queue`) {
 
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		let index = 0;
 		const embedqu = new Discord.RichEmbed()
 	.setDescription(`**Songs Queue**
+
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
+
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`)
 		return msg.channel.sendEmbed(embedqu);
-	} else if (command === `sto`) {
+	} else if (command === `stop`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 			return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
 		}
 		return msg.channel.send('There is nothing playing.');
-	} else if (command === `resum`) {
+	} else if (command === `resume`) {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
@@ -247,45 +249,16 @@ var prefix = '2';
 client.on('message', msg => {
 	if (msg.content.startsWith(prefix + 'help')) {
 msg.author.send("Commands ستاتي " + `  **
+
    "  : الاوامر "
-:headphones:  ${prefix}pl |اسم لاغنيه / رابط الاغنية
-:headphones:  ${prefix}skiللإنتقاال الى الاغنيه التاليه (\اذا كان هناك بقائمة الانتظار\
-:headphones:  ${prefix}sto|لأيقاف الموسيقى
-:headphones:  ${prefix}volum|لتغير حجم الصوت
+:headphones:  ${prefix}play |اسم لاغنيه / رابط الاغنية
+:headphones:  ${prefix}skipللإنتقاال الى الاغنيه التاليه (\اذا كان هناك بقائمة الانتظار\
+:headphones:  ${prefix}stop|لأيقاف الموسيقى
+:headphones:  ${prefix}volume |لتغير حجم الصوت
 :headphones:  ${prefix}np | لإقاف الموسيقى مؤقتا
-:headphones:  ${prefix}resum|لاعادت تشغيل الاغنية الموجودة
+:headphones:  ${prefix}resume |لاعادت تشغيل الاغنية الموجودة
 **`);
  }
-});
-
-
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Mido King | 2help`,"https://www.twitch.tv/lboghaz_kingheros")
-  console.log('')
-  console.log('')
-  console.log('+[-----------------------------------------------------------------]+')
-  console.log(`[Start] ${new Date()}`);
-  console.log('+[-----------------------------------------------------------------]+')
-  console.log('')
-  console.log('+[------------------------------------]+');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('By The Atlantic Enjoy')
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('+[------------------------------------]+')
-  console.log('')
-  console.log('+[------------]+')
-  console.log(' Bot Is Online')
-  console.log('+[------------]+')
-  console.log('')
-  console.log('')
 });
 
 
