@@ -14,9 +14,10 @@ const PREFIX = '+';
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
+
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || +play ');
+    client.user.setGame(prefix + 'Mido King || 2play ');
 });
 
 
@@ -222,24 +223,24 @@ function isYoutube(str) {
      .setColor("RANDOM")
      .addField(`Zyad,aLmutairi commands:
 
-+about - shows info about the bot
-+ping - checks the bot's latency
+2about - shows info about the bot
+2ping - checks the bot's latency
 
   Music:
 
-+play - shows the song that is currently playing
-+play <title|URL|subcommand> - plays the provided song
-+queue [pagenum] - shows the current queue
-+تعال <title|URL|subcommand> - plays the provided song
-+skip - votes to skip the current song
+2play - shows the song that is currently playing
+2play <title|URL|subcommand> - plays the provided song
+2queue [pagenum] - shows the current queue
+2تعال <title|URL|subcommand> - plays the provided song
+2skip - votes to skip the current song
 
   DJ:
-+ok <title|URL|subcommand> - plays the provided song
-+skip - skips the current song
-+pause - pauses the current song
-+skipt <position> - skips to the specified song
-+stop - stops the current song and clears the queue
-+vol [0-150] - sets or shows volume
+2ok <title|URL|subcommand> - plays the provided song
+2skip - skips the current song
+2pause - pauses the current song
+2skipt <position> - skips to the specified song
+2stop - stops the current song and clears the queue
+2vol [0-150] - sets or shows volume
 
 For additional help,  `)
 
