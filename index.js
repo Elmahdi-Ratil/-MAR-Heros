@@ -8,7 +8,7 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '1';
+const PREFIX = '+';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
@@ -16,45 +16,23 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || 1play ');
+    client.user.setGame(prefix + 'Mido King || +play ');
 });
 
 
-client.login(discord_token);
-client.on('ready', function() {
-    console.log(`i am ready ${client.user.username}`);
-});
-/*
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-*/
-var servers = [];
-var queue = [];
-var guilds = [];
-var queueNames = [];
-var isPlaying = false;
-var dispatcher = null;
-var voiceChannel = null;
-var skipReq = 0;
-var skippers = [];
-var now_playing = [];
-/*
-\\\\\\\\\\\\\\\\\\\\\\\\V/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\V/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\V/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\V/////////////////////////
-*/
-client.on('ready', () => {});
-var download = function(uri, filename, callback) {
-    request.head(uri, function(err, res, body) {
-        console.log('content-type:', res.headers['content-type']);
-        console.log('content-length:', res.headers['content-length']);
 
-        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-    });
-};
+client.on('warn', console.warn);
+
+client.on('error', console.error);
+
+client.on('ready', () => console.log('Yo this ready!'));
+
+// client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
+
+// client.on('reconnecting', () => console.log('I am reconnecting now!'));
+
+
+
 
 client.on('message', function(message) {
     const member = message.member;
@@ -244,24 +222,24 @@ function isYoutube(str) {
      .setColor("RANDOM")
      .addField(`Zyad,aLmutairi commands:
 
-1about - shows info about the bot
-1ping - checks the bot's latency
++about - shows info about the bot
++ping - checks the bot's latency
 
   Music:
 
-1play - shows the song that is currently playing
-1play <title|URL|subcommand> - plays the provided song
-1queue [pagenum] - shows the current queue
-1تعال <title|URL|subcommand> - plays the provided song
++play - shows the song that is currently playing
++play <title|URL|subcommand> - plays the provided song
++queue [pagenum] - shows the current queue
++تعال <title|URL|subcommand> - plays the provided song
 +skip - votes to skip the current song
 
   DJ:
-1ok <title|URL|subcommand> - plays the provided song
-1skip - skips the current song
-1pause - pauses the current song
-1skipt <position> - skips to the specified song
-1stop - stops the current song and clears the queue
-1vol [0-150] - sets or shows volume
++ok <title|URL|subcommand> - plays the provided song
++skip - skips the current song
++pause - pauses the current song
++skipt <position> - skips to the specified song
++stop - stops the current song and clears the queue
++vol [0-150] - sets or shows volume
 
 For additional help,  `)
 
@@ -295,7 +273,6 @@ For additional help,  `)
          message.channel.send({embed:embed});
                         }
                     });
-
 
 client.login(process.env.BOT_TOKEN);
 
