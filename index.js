@@ -1,13 +1,24 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, Util } = require('discord.js');
+const Discord = require("discord.js");
+const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const request = require('request');
-const fs = require('fs');
-const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
 
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '+';
+const client = new Client({ disableEveryone: true });
+
+
+const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
+
+const PREFIX = '1';
+
+
+const youtube = new YouTube(GOOGLE_API_KEY);
+
+const queue = new Map();
+client.on('ready', function() {
+	console.log(`i am ready ${client.user.username}`);
+    client.user.setGame(prefix + 'Mido King || 1play ');
+});
+
 
 client.login(discord_token);
 client.on('ready', function() {
@@ -233,24 +244,24 @@ function isYoutube(str) {
      .setColor("RANDOM")
      .addField(`Zyad,aLmutairi commands:
 
-+about - shows info about the bot
-+ping - checks the bot's latency
+1about - shows info about the bot
+1ping - checks the bot's latency
 
   Music:
 
-+play - shows the song that is currently playing
-+play <title|URL|subcommand> - plays the provided song
-+queue [pagenum] - shows the current queue
-+تعال <title|URL|subcommand> - plays the provided song
+1play - shows the song that is currently playing
+1play <title|URL|subcommand> - plays the provided song
+1queue [pagenum] - shows the current queue
+1تعال <title|URL|subcommand> - plays the provided song
 +skip - votes to skip the current song
 
   DJ:
-+ok <title|URL|subcommand> - plays the provided song
-+skip - skips the current song
-+pause - pauses the current song
-+skipt <position> - skips to the specified song
-+stop - stops the current song and clears the queue
-+vol [0-150] - sets or shows volume
+1ok <title|URL|subcommand> - plays the provided song
+1skip - skips the current song
+1pause - pauses the current song
+1skipt <position> - skips to the specified song
+1stop - stops the current song and clears the queue
+1vol [0-150] - sets or shows volume
 
 For additional help,  `)
 
@@ -284,5 +295,7 @@ For additional help,  `)
          message.channel.send({embed:embed});
                         }
                     });
+
+
 client.login(process.env.BOT_TOKEN);
 
