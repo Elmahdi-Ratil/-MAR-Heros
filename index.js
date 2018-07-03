@@ -245,7 +245,7 @@ if (message.content.startsWith(PREFIX + 'setavatar')) {
 }
 });
 
-var prefix = '1';
+var prefix = '2';
 
 client.on('message', msg => {
 	if (msg.content.startsWith(prefix + 'help')) {
