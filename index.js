@@ -17,7 +17,7 @@ const queue = new Map();
 
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || 2play ');
+    client.user.setGame(prefix + 'Mido King || 2help ');
 });
 
 
