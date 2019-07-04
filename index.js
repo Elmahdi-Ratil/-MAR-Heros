@@ -14,10 +14,9 @@ const PREFIX = '2';
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
-
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || 2help ');
+    client.user.setGame(prefix + 'M.A.R™ || 2help');
 });
 
 
@@ -31,8 +30,6 @@ client.on('ready', () => console.log('Yo this ready!'));
 // client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
 // client.on('reconnecting', () => console.log('I am reconnecting now!'));
-
-
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
@@ -226,10 +223,10 @@ client.on('message', message => {
   if (!message.content.startsWith(PREFIX)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "381084760426020865") return;
+  if (message.author.id !== "548399237101256711") return;
 
 if (message.content.startsWith(PREFIX + 'setstream')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
+  client.user.setGame(argresult, "https://www.twitch.tv/sa7tlil");
 	 console.log('test' + argresult);
     message.channel.sendMessage(`Streaming: **${argresult}`)
 }
@@ -240,7 +237,7 @@ if (message.content.startsWith(PREFIX + 'setname')) {
   return message.reply("You Can change the username 2 times per hour");
 }
 if (message.content.startsWith(PREFIX + 'setavatar')) {
-  client.user.setAvatar(argresult);
+  client.user.setAvatar(argresult, "https://discordapp.com/api/oauth2/authorize?client_id=548399237101256711&permissions=8&scope=bot");
    message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
 }
 });
@@ -264,6 +261,4 @@ msg.author.send("Commands ستاتي " + `  **
 
 
 
-
 client.login(process.env.BOT_TOKEN);
-
